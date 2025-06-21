@@ -50,7 +50,7 @@ import com.plcoding.cryptotracker.ui.theme.onSurfaceDark
 @Composable
 fun CoinDetailScreen(
     state: CoinListState,
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
 ) {
     val contentColor = if (isSystemInDarkTheme()) {
         Color.White
@@ -160,7 +160,9 @@ fun CoinDetailScreen(
                     dataPoints = coin.coinPriceHistory,
                     style = ChartStyle(
                         chartLineColor = MaterialTheme.colorScheme.primary,
-                        unSelectedColor = MaterialTheme.colorScheme.secondary,
+                        unSelectedColor = MaterialTheme.colorScheme.secondary.copy(
+                            alpha = 0.4f
+                        ),
                         selectedColor = MaterialTheme.colorScheme.primary,
                         helperLinesThicknessPx = 5f,
                         axisLinesThicknessPx = 5f,
